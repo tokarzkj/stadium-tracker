@@ -11,14 +11,15 @@ class App extends Component {
       <div className="App">
         <Grid container
           direction="row"
-          padding={20}>
+          justify="space-between">
             <Grid
-              item
-              sm={11}>
-              <div>Stadium Tracker</div>
+              item>
+              <div className="header-bar-item">Stadium Tracker</div>
             </Grid>
             <Grid item>
-              <Auth />
+              <div className="header-bar-item">
+                <Auth className="header-bar-item" />
+              </div>
             </Grid>
         </Grid>
       </div>
