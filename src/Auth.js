@@ -57,7 +57,7 @@ class Auth extends React.Component {
     } else {
       return (
         <Button variant="contained"
-          color="primary"
+          color="secondary"
           onClick={() => this.logout()}>
           Logout
         </Button>
