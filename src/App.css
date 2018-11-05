@@ -26,6 +26,10 @@
   flex-grow: 1;
 }
 
+.Homepage-card {
+  max-width: 400px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
