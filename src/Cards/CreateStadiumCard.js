@@ -14,7 +14,8 @@ class CreateStadiumCard extends Component {
         />
         <CardContent>
           <Typography>
-            Lets setup your next stadium visit!
+            This is where you will create your next stadium memory. Click on this Card
+            to create a new one!
           </Typography>
         </CardContent>
       </Card>

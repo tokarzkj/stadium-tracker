@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import 'typeface-roboto';
 import Navigation from './Header/Navigation';
-import HomagePageCardList from './Cards/HomePageCardList';
-import Grid from '@material-ui/core/Grid';
+import HomePageCardList from './Cards/HomePageCardList';
 
 class App extends Component {
   render() {
@@ -11,7 +10,7 @@ class App extends Component {
       <div className="App">
         <Navigation />
         <div>
-          <HomagePageCardList />
+          <HomePageCardList />
         </div>
       </div>
     );
