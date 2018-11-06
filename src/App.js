@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import 'typeface-roboto';
 import Navigation from './Header/Navigation';
-import CreateStadiumCard from './Cards/CreateStadiumCard';
+import HomagePageCardList from './Cards/HomePageCardList';
 import Grid from '@material-ui/core/Grid';
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
       <div className="App">
         <Navigation />
         <div>
-          <CreateStadiumCard className='Homepage-card' />
+          <HomagePageCardList />
         </div>
       </div>
     );
