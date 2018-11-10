@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 export default class HomePageCardList extends Component {
   render() {
     return (
-      <Grid container direction="column" justify="center" alignItems="center" sm="12">
+      <Grid container direction="column" justify="center" alignItems="center">
         <Grid item>
           <CreateStadiumCard />
         </Grid>
