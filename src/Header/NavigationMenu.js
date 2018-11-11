@@ -3,7 +3,8 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import '../App.css';
 
 export default class NavigationMenu extends Component {
   state = {
@@ -38,16 +39,19 @@ export default class NavigationMenu extends Component {
               onClose={this.handleClose}
           >
               <div>
-                <MenuItem onClick={this.handleClose}>
-                  <Link to="/">
+              <NavLink to="/"
+                className="menu-link">
+                  <MenuItem onClick={this.handleClose}>
                     Home
-                  </Link>
-                </MenuItem>
-                <MenuItem onClick={this.handleClose}>
-                  <Link to="/stadium/visit">
+                  </MenuItem>
+                </NavLink>
+                <NavLink to="/stadium/visit"
+                  className="menu-link">
+                  <MenuItem onClick={this.handleClose}>
+
                     Visit Stadium
-                  </Link>
-                </MenuItem>
+                  </MenuItem>
+                </NavLink>
               </div>
           </Menu>
         </div>

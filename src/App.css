@@ -31,11 +31,10 @@
   max-width: 400px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.menu-link {
+  text-decoration: none;
+}
+
+.menu-link-active {
+  background-color: #D3D3D3
 }
