@@ -38,8 +38,16 @@ export default class NavigationMenu extends Component {
               onClose={this.handleClose}
           >
               <div>
-                <Link to="/"><MenuItem onClick={this.handleClose}>Home</MenuItem></Link>
-                <Link to="/stadium/visit"><MenuItem onClick={this.handleClose}>Visit Stadium</MenuItem></Link>
+                <MenuItem onClick={this.handleClose}>
+                  <Link to="/">
+                    Home
+                  </Link>
+                </MenuItem>
+                <MenuItem onClick={this.handleClose}>
+                  <Link to="/stadium/visit">
+                    Visit Stadium
+                  </Link>
+                </MenuItem>
               </div>
           </Menu>
         </div>
