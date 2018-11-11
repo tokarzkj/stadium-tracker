@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import './App.css';
+const axios = require('axios');
 
 export default class CreateStadiumVisit extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ export default class CreateStadiumVisit extends Component {
 
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleNameChange(event) {
@@ -25,8 +27,14 @@ export default class CreateStadiumVisit extends Component {
   }
 
   handleSubmit(event) {
-    alert('test');
     event.preventDefault();
+    axios.post('/stadium', this.state)
+      .then(function (response) {
+        console.log("worked");
+      })
+      .catch(function (response) {
+        console.log("failed");
+      });
   }
 
   render() {
