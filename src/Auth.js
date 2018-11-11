@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Button from '@material-ui/core/Button';
 
-class Auth extends React.Component {
+class Auth extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -57,7 +57,7 @@ class Auth extends React.Component {
     } else {
       return (
         <Button variant="contained"
-          color="primary"
+          color="secondary"
           onClick={() => this.logout()}>
           Logout
         </Button>
