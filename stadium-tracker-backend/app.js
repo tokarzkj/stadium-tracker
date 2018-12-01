@@ -3,11 +3,33 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var uuidv5 = require('uuid/v5');
+var session = require('express-session');
+var MySQLStore = require('express-mysql-session')(session);
+require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var stadiumRouter = require('./routes/stadium');
 
 var app = express();
+const options = {
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE
+};
+
+app.use(session({
+  genid: function(req) {
+    return uuidv5('localhost:3000', uuidv5.URL);
+  },
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  store: new MySQLStore(options)
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,6 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/stadium', stadiumRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+import './App.css';
+const axios = require('axios');
 
 export default class CreateStadiumVisit extends Component {
   constructor(props) {
@@ -10,6 +15,7 @@ export default class CreateStadiumVisit extends Component {
 
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleNameChange(event) {
@@ -21,21 +27,54 @@ export default class CreateStadiumVisit extends Component {
   }
 
   handleSubmit(event) {
-    alert('test');
     event.preventDefault();
+    axios.post('/stadium', this.state)
+      .then(function (response) {
+        console.log("worked");
+      })
+      .catch(function (response) {
+        console.log("failed");
+      });
   }
 
   render() {
     return(
       <form onSubmit={this.handleSubmit}>
-        <label>
-          Stadium Name:
-          <input type="text" value={this.state.stadiumName} onChange={this.handleNameChange} />
-        </label>
-        <label>
-          Date Visited:
-          <input type="date" value={this.state.visitDate} onChange={this.handleDateChange} />
-        </label>
+        <Grid
+          container
+          direction="column"
+          spacing={24}>
+          <Grid
+            item>
+            <TextField
+              id="stadium-name"
+              label="Stadium Name"
+              value={this.state.stadiumName}
+              onChange={this.handleNameChange}
+            />
+          </Grid>
+          <Grid
+            item>
+            <TextField
+              id="date-visited"
+              label="Date Visited:"
+              type="date"
+              onChange={this.handleDateChange}
+              InputLabelProps={{
+                shrink: true
+              }}
+            />
+          </Grid>
+          <Grid
+            item>
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit">
+              Submit
+            </Button>
+          </Grid>
+        </Grid>
       </form>
     )
   }
