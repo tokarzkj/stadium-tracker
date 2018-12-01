@@ -38,7 +38,6 @@ export default class CreateStadiumVisit extends Component {
   }
 
   render() {
-    const today = new Date().toString();
     return(
       <form onSubmit={this.handleSubmit}>
         <Grid

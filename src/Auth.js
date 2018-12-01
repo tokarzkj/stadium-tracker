@@ -41,9 +41,10 @@ class Auth extends Component {
   }
 
   logout() {
-    debugger;
-    window.FB.logout(function (response) {
-      console.log('logged out');
+    window.FB.logout((response) => {
+      if (response.status === 'unknown') {
+        this.setState({isLoggedIn: false});
+      }
     });
   }
 
