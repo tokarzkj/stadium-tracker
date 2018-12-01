@@ -5,7 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var uuidv5 = require('uuid/v5');
 var session = require('express-session');
-var MySQLStore = require('express-mysql-session')(session);
+var RedisStore = require('connect-redis')(session);
+var redis = require('redis');
 require('dotenv').config();
 
 var indexRouter = require('./routes/index');
@@ -13,13 +14,7 @@ var usersRouter = require('./routes/users');
 var stadiumRouter = require('./routes/stadium');
 
 var app = express();
-const options = {
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE
-};
+const client = redis.createClient();
 
 app.use(session({
   genid: function(req) {
@@ -28,7 +23,10 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
-  store: new MySQLStore(options)
+  store: new RedisStore({
+    client: client,
+    ttl: 260
+  })
 }));
 
 // view engine setup
