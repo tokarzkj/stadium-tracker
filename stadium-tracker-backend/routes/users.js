@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/signin', (req, res, next) => {
-
+  debugger;
 });
 
 module.exports = router;

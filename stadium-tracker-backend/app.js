@@ -14,6 +14,7 @@ var usersRouter = require('./routes/users');
 var stadiumRouter = require('./routes/stadium');
 
 var app = express();
+app.set("port", process.env.PORT);
 const client = redis.createClient();
 
 app.use(session({
