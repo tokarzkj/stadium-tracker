@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/signin', (req, res, next) => {
   let userId = req.body.userId;
-  req.session.id = userId;
+  req.session.key = userId;
   res.end();
 });
 

@@ -21,7 +21,10 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: new RedisStore({
-    client: client
+    host: process.env.REDIS_HOST,
+    port: process.env.REDIS_PORT,
+    client: client,
+    ttl: 260
   })
 }));
 
