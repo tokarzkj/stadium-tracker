@@ -1,32 +1,27 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var uuidv5 = require('uuid/v5');
-var session = require('express-session');
-var RedisStore = require('connect-redis')(session);
-var redis = require('redis');
-require('dotenv').config();
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var stadiumRouter = require('./routes/stadium');
-
-var app = express();
-app.set("port", process.env.PORT);
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
+const redis = require('redis');
 const client = redis.createClient();
+require('dotenv').config();
+client.on_connect(function() { console.log("connect")});
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const stadiumRouter = require('./routes/stadium');
+
+const app = express();
+app.set("port", process.env.BACKEND_PORT);
 
 app.use(session({
-  genid: function(req) {
-    return uuidv5('localhost:3000', uuidv5.URL);
-  },
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   store: new RedisStore({
-    client: client,
-    ttl: 260
+    client: client
   })
 }));
 

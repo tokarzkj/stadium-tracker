@@ -7,7 +7,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/signin', (req, res, next) => {
-  debugger;
+  let userId = req.body.userId;
+  req.session.id = userId;
+  res.end();
 });
 
 module.exports = router;

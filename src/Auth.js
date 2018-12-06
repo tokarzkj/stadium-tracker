@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import Button from '@material-ui/core/Button';
+import axios from 'axios';
 
 class Auth extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoggedIn: false,
+      userId: null,
     }
   }
 
@@ -23,6 +25,11 @@ class Auth extends Component {
       window.FB.getLoginStatus((response) => {
         if (response.status === 'connected') {
           this.setState({isLoggedIn: true});
+          window.FB.api('/me', (response) => {        
+            axios.post('/users/signin', {
+              userId: response.id
+            });
+          });
         } else {
           this.setState({isLoggedIn: false});
         }
