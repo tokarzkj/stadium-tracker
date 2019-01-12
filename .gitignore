@@ -6,6 +6,9 @@
 /.pnp
 .pnp.js
 
+#config
+/stadium-tracker-backend/config
+
 # testing
 /coverage
 
