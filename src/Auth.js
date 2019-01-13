@@ -24,10 +24,11 @@ class Auth extends Component {
 
       window.FB.getLoginStatus((response) => {
         if (response.status === 'connected') {
+          const userId = response.authResponse.userID;
           this.setState({isLoggedIn: true});
           window.FB.api('/me', (response) => {        
             axios.post('/users/signin', {
-              userId: response.id
+              userId: userId
             });
           });
         } else {
