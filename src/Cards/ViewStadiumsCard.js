@@ -10,7 +10,7 @@ class ViewStadiumsCard extends Component {
   render() {
     return (
       <Link to="/stadium/stadiums">
-        <Card className="card">
+        <Card className="card homepage-card">
           <CardHeader
             title="Show stadium"
           />
