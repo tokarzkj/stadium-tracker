@@ -4,14 +4,26 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+const axios = require('axios');
 
 class Stadiums extends React.Component {
-    getStadiums() {
+    state = {
+        stadiums: []
+    }
 
+    getStadiums() {
+        debugger;
+        axios.get('/stadium')
+            .then((response) => {
+                this.setState({stadiums: response.data});
+            });
+    }
+
+    componentDidMount() {
+        this.getStadiums();
     }
 
     render() {
-        const rows = this.getStadiums();
         return (
             <Table>
                 <TableHead>
@@ -21,11 +33,11 @@ class Stadiums extends React.Component {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map(row => {
+                    {this.state.stadiums.map(stadium => {
                         return (
                             <TableRow>
-                                <TableCell>row.stadiumName</TableCell>
-                                <TableCell>row.dateVisited</TableCell>
+                                <TableCell>{stadium.stadiumName}</TableCell>
+                                <TableCell>{new Date(stadium.visitDate).toLocaleDateString()}</TableCell>
                             </TableRow>
                         );
                     })}
