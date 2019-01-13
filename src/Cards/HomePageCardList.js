@@ -7,11 +7,11 @@ import ViewStadiumsCard from './ViewStadiumsCard';
 export default class HomePageCardList extends Component {
   render() {
     return (
-      <Grid container direction="row" justify="center" alignItems="center">
+      <Grid container direction="row" justify="center" alignItems="center" spacing={32}>
         <Grid item>
           <CreateStadiumCard />
         </Grid>
-        <Grid>
+        <Grid item>
           <ViewStadiumsCard />
         </Grid>
       </Grid>
