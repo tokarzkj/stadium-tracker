@@ -5,6 +5,7 @@ import Navigation from './Header/Navigation';
 import HomePageCardList from './Cards/HomePageCardList';
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import CreateStadiumVisit from './CreateStadiumVisit';
+import Stadiums from './Stadiums';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={HomePageCardList} />
                 <Route path="/stadium/visit" component={CreateStadiumVisit} />
+                <Route path="/stadium/stadiums" component={Stadiums} />
               </Switch>
             </div>
           </Router>

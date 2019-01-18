@@ -11,9 +11,19 @@ router.post('/', function(req, res, next) {
   StadiumVisit.create({
     stadiumName: req.body.stadiumName,
     visitDate: req.body.visitDate,
-    userId: req.sessionID
+    userId: req.session.key
   }).then((stadiumVisit) => {
     res.send();
+  });
+});
+
+router.get('/', function(req, res, next) {
+  StadiumVisit.findAll({
+    where: {
+      userId: req.session.key
+    }
+  }).then((rows) => {
+    res.send(rows);
   });
 });
 

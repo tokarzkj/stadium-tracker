@@ -6,18 +6,17 @@ import Typography from '@material-ui/core/Typography';
 import '../App.css';
 import { Link } from 'react-router-dom';
 
-class CreateStadiumCard extends Component {
+class ViewStadiumsCard extends Component {
   render() {
     return (
-      <Link to="/stadium/visit">
+      <Link to="/stadium/stadiums">
         <Card className="card homepage-card">
           <CardHeader
-            title="Visit stadium"
+            title="Show stadium"
           />
           <CardContent>
             <Typography>
-              This is where you will create your next stadium memory. Click on this Card
-              to create a new one!
+              View the stadiums you have visited
             </Typography>
           </CardContent>
         </Card>
@@ -26,4 +25,4 @@ class CreateStadiumCard extends Component {
   }
 }
 
-export default CreateStadiumCard;
+export default ViewStadiumsCard;

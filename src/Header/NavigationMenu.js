@@ -48,8 +48,13 @@ export default class NavigationMenu extends Component {
                 <NavLink to="/stadium/visit"
                   className="menu-link">
                   <MenuItem onClick={this.handleClose}>
-
                     Visit Stadium
+                  </MenuItem>
+                </NavLink>
+                <NavLink to="/stadium/stadiums"
+                  className="menu-link">
+                  <MenuItem onClick={this.handleClose}>
+                    Stadium Visits
                   </MenuItem>
                 </NavLink>
               </div>
