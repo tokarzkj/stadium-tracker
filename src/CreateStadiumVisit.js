@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
+import { Redirect } from 'react-router'
 import './App.css';
 const axios = require('axios');
 
@@ -29,15 +30,19 @@ export default class CreateStadiumVisit extends Component {
   handleSubmit(event) {
     event.preventDefault();
     axios.post('/stadium', this.state)
-      .then(function (response) {
-        console.log("worked");
+      .then(response => {
+        this.setState({toStadiums: true});
       })
-      .catch(function (response) {
+      .catch(respons => {
         console.log("failed");
       });
   }
 
   render() {
+    if (this.state.toStadiums === true) {
+      return <Redirect to="/stadium/stadiums" />
+    }
+
     return(
       <form onSubmit={this.handleSubmit}>
         <Grid

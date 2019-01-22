@@ -12,7 +12,6 @@ class Stadiums extends React.Component {
     }
 
     getStadiums() {
-        debugger;
         axios.get('/stadium')
             .then((response) => {
                 this.setState({stadiums: response.data});
