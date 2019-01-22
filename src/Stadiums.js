@@ -4,6 +4,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import DeleteForever from '@material-ui/icons/DeleteForever';
 const axios = require('axios');
 
 class Stadiums extends React.Component {
@@ -29,6 +30,7 @@ class Stadiums extends React.Component {
                     <TableRow>
                         <TableCell>Stadium Name:</TableCell>
                         <TableCell>Visit Date:</TableCell>
+                        <TableCell></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -37,6 +39,7 @@ class Stadiums extends React.Component {
                             <TableRow>
                                 <TableCell>{stadium.stadiumName}</TableCell>
                                 <TableCell>{new Date(stadium.visitDate).toLocaleDateString()}</TableCell>
+                                <TableCell><DeleteForever/></TableCell>
                             </TableRow>
                         );
                     })}
