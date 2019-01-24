@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<WithStyles(Table)>
+  <WithStyles(TableHead)>
+    <WithStyles(TableRow)>
+      <WithStyles(TableCell)>
+        Stadium Name:
+      </WithStyles(TableCell)>
+      <WithStyles(TableCell)>
+        Visit Date:
+      </WithStyles(TableCell)>
+      <WithStyles(TableCell) />
+    </WithStyles(TableRow)>
+  </WithStyles(TableHead)>
+  <WithStyles(TableBody)>
+    <WithStyles(TableRow)>
+      <WithStyles(TableCell)>
+        Ford Field
+      </WithStyles(TableCell)>
+      <WithStyles(TableCell)>
+        1/18/2019
+      </WithStyles(TableCell)>
+      <WithStyles(TableCell)>
+        <pure(DeleteForeverIcon)
+          onClick={[Function]}
+        />
+      </WithStyles(TableCell)>
+    </WithStyles(TableRow)>
+  </WithStyles(TableBody)>
+</WithStyles(Table)>
+`;
