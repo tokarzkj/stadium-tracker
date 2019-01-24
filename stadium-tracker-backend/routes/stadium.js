@@ -27,4 +27,17 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.delete('/:stadiumId', function (req, res, next) {
+  const stadiumId = req.params.stadiumId;
+  StadiumVisit.destroy({
+    where: {
+      id: stadiumId
+    }
+  }).then(() => {
+    res.send();
+  }).error((err) => {
+    console.log(err);
+  });
+});
+
 module.exports = router;

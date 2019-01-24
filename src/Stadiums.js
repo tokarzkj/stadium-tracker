@@ -19,6 +19,14 @@ class Stadiums extends React.Component {
             });
     }
 
+    deleteStadium(stadiumId) {
+        axios.delete(`/stadium/${stadiumId}`)
+            .then(() => {
+                const remainingStadiums = this.state.stadiums.filter(stadium => stadium.id !== stadiumId);
+                this.setState({ stadiums: remainingStadiums});
+            });
+    }
+
     componentDidMount() {
         this.getStadiums();
     }
@@ -39,7 +47,7 @@ class Stadiums extends React.Component {
                             <TableRow>
                                 <TableCell>{stadium.stadiumName}</TableCell>
                                 <TableCell>{new Date(stadium.visitDate).toLocaleDateString()}</TableCell>
-                                <TableCell><DeleteForever/></TableCell>
+                                <TableCell><DeleteForever onClick={() => this.deleteStadium(stadium.id)}/></TableCell>
                             </TableRow>
                         );
                     })}
