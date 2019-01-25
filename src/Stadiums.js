@@ -4,6 +4,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import DeleteForever from '@material-ui/icons/DeleteForever';
 const axios = require('axios');
 
 class Stadiums extends React.Component {
@@ -18,6 +19,14 @@ class Stadiums extends React.Component {
             });
     }
 
+    deleteStadium(stadiumId) {
+        axios.delete(`/stadium/${stadiumId}`)
+            .then(() => {
+                const remainingStadiums = this.state.stadiums.filter(stadium => stadium.id !== stadiumId);
+                this.setState({ stadiums: remainingStadiums});
+            });
+    }
+
     componentDidMount() {
         this.getStadiums();
     }
@@ -29,6 +38,7 @@ class Stadiums extends React.Component {
                     <TableRow>
                         <TableCell>Stadium Name:</TableCell>
                         <TableCell>Visit Date:</TableCell>
+                        <TableCell></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -37,6 +47,7 @@ class Stadiums extends React.Component {
                             <TableRow>
                                 <TableCell>{stadium.stadiumName}</TableCell>
                                 <TableCell>{new Date(stadium.visitDate).toLocaleDateString()}</TableCell>
+                                <TableCell><DeleteForever onClick={() => this.deleteStadium(stadium.id)}/></TableCell>
                             </TableRow>
                         );
                     })}
