@@ -3,6 +3,7 @@ import CreateStadiumCard from './CreateStadiumCard';
 import '../App.css';
 import Grid from '@material-ui/core/Grid';
 import ViewStadiumsCard from './ViewStadiumsCard';
+import { NflCard } from './NflCard';
 
 export default class HomePageCardList extends Component {
   render() {
@@ -13,6 +14,9 @@ export default class HomePageCardList extends Component {
         </Grid>
         <Grid item>
           <ViewStadiumsCard />
+        </Grid>
+        <Grid item>
+          <NflCard />
         </Grid>
       </Grid>
     )
