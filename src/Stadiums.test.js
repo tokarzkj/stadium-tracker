@@ -21,6 +21,15 @@ it('renders correctly', () => {
             visitDate: '2019-01-18 00:00:00'
         }]
     });
-    
+    sinon.restore();
     expect(wrapper).toMatchSnapshot();
+});
+
+it('calls getStadiums once', () => {
+    const fake = sinon.fake();
+    sinon.replace(Stadiums.prototype, 'getStadiums', fake);
+    shallow(<Stadiums />);
+
+    sinon.restore();
+    expect(fake.callCount).toBe(1);
 });

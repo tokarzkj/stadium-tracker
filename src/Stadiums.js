@@ -44,7 +44,7 @@ class Stadiums extends React.Component {
                 <TableBody>
                     {this.state.stadiums.map(stadium => {
                         return (
-                            <TableRow>
+                            <TableRow key={stadium.id}>
                                 <TableCell>{stadium.stadiumName}</TableCell>
                                 <TableCell>{new Date(stadium.visitDate).toLocaleDateString()}</TableCell>
                                 <TableCell><DeleteForever onClick={() => this.deleteStadium(stadium.id)}/></TableCell>

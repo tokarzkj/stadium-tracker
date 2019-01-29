@@ -14,7 +14,9 @@ exports[`renders correctly 1`] = `
     </WithStyles(TableRow)>
   </WithStyles(TableHead)>
   <WithStyles(TableBody)>
-    <WithStyles(TableRow)>
+    <WithStyles(TableRow)
+      key="1"
+    >
       <WithStyles(TableCell)>
         Ford Field
       </WithStyles(TableCell)>
