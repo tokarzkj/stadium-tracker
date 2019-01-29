@@ -6,11 +6,11 @@ class Auth extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false,
-      userId: null,
+      isLoggedIn: false
     }
 
     this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   login() {
@@ -57,7 +57,6 @@ class Auth extends Component {
     } else {
       return (
         <Button variant="contained"
-          color="secondary"
           onClick={() => this.logout()}>
           Logout
         </Button>

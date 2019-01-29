@@ -32,5 +32,4 @@ it('calls getStadiums once', () => {
 
     sinon.restore();
     expect(fake.callCount).toBe(1);
-    
 });
