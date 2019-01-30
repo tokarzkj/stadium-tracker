@@ -57,6 +57,12 @@ export default class NavigationMenu extends Component {
                     Stadium Visits
                   </MenuItem>
                 </NavLink>
+                <NavLink to="/leagues/nfl"
+                  className="menu-link">
+                  <MenuItem onClick={this.handleClose}>
+                    Search NFL
+                  </MenuItem>
+                </NavLink>
               </div>
           </Menu>
         </div>
