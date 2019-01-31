@@ -2,33 +2,46 @@ import React from 'react';
 import { GetTopHeadlinesFromEspn } from './espn';
 import Grid from '@material-ui/core/Grid';
 import { TopHeadlineDisplay } from './TopHeadlineDisplay';
+import './topHeadlines.css';
 
 export class TopHeadlines extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            articles: null
+        }
+    }
+
     componentDidMount() {
         GetTopHeadlinesFromEspn()
         .then(response => response.json())
-        .then(articles => {
-            this.setData({
-                articles: articles
+        .then(data => {
+            this.setState({
+                articles: data.articles
             });
         });
     }
 
     render() {
-        const renderedArticles = this.state.articles.map(article => {
-            return (
-                <Grid item>
-                    <TopHeadlineDisplay title={article.title} author={article.author} />
-                </Grid>
-            )
-        });
-        
         if (this.state.articles) {
+            const renderedArticles = this.state.articles.map(article => {
+                return (
+                    <Grid item xs={12} className="article-preview">
+                        <TopHeadlineDisplay articleUrl={article.url} imageUrl={article.urlToImage} title={article.title} author={article.author} description={article.description} />
+                    </Grid>
+                )
+            });
             return (
-                <Grid container>
-                    {renderedArticles}
-                </Grid>
+                <div>
+                    <Grid container>
+                        {renderedArticles}
+                    </Grid>
+                    <span>*Data provided from <a href="https://newsapi.org">News Api</a></span>
+                </div>
             )
+        } else {
+            return <div>Loading</div>
         }
     }
 }
