@@ -6,6 +6,7 @@ import HomePageCardList from './Cards/HomePageCardList';
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import CreateStadiumVisit from './CreateStadiumVisit';
 import Stadiums from './Stadiums';
+import { NflSearch } from './Leagues/NFL/NflSearch';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
                 <Route exact path="/" component={HomePageCardList} />
                 <Route path="/stadium/visit" component={CreateStadiumVisit} />
                 <Route path="/stadium/stadiums" component={Stadiums} />
+                <Route path="/leagues/nfl" component={NflSearch} />
               </Switch>
             </div>
           </Router>
