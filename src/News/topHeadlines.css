@@ -10,3 +10,13 @@
     width: 35%;
     height: 35%;
 }
+
+.search-bar {
+    width: 100%;
+}
+
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
