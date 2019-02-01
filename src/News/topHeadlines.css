@@ -1,0 +1,22 @@
+.article-preview {
+    padding: 50px 50px 0px 50px;
+}
+
+.article-link {
+    text-decoration: none;
+}
+
+.article-image {
+    width: 35%;
+    height: 35%;
+}
+
+.search-bar {
+    width: 100%;
+}
+
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
