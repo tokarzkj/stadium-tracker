@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import CreateStadiumVisit from './CreateStadiumVisit';
 import Stadiums from './Stadiums';
 import { NflSearch } from './Leagues/NFL/NflSearch';
-import { TopHeadlines } from './News/TopHeadlines';
+import { TopHeadlinesContainer } from './News/TopHeadlinesContainer';
 
 class App extends Component {
   render() {
@@ -21,7 +21,7 @@ class App extends Component {
                 <Route path="/stadium/visit" component={CreateStadiumVisit} />
                 <Route path="/stadium/stadiums" component={Stadiums} />
                 <Route path="/leagues/nfl" component={NflSearch} />
-                <Route path="/news/headlines" component={TopHeadlines} />
+                <Route path="/news/headlines" component={TopHeadlinesContainer} />
               </Switch>
             </div>
           </Router>
