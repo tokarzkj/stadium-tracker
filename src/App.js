@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import CreateStadiumVisit from './CreateStadiumVisit';
 import Stadiums from './Stadiums';
 import { NflSearch } from './Leagues/NFL/NflSearch';
-import { TopHeadlinesContainer } from './News/TopHeadlinesContainer';
+import TopHeadlinesContainer from './News/TopHeadlinesContainer';
 
 class App extends Component {
   render() {

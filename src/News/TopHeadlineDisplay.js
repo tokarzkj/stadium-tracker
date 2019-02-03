@@ -6,7 +6,7 @@ export class TopHeadlineDisplay extends React.Component {
     render() {
         return (
             <a href={this.props.articleUrl} target='_blank' rel="noopener noreferrer" className='article-link'>
-                <Paper>
+                <Paper onClick={this.props.onClick}>
                     <Typography variant="h3">
                         {this.props.title}
                     </Typography>
