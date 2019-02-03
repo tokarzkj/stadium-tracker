@@ -1,13 +1,20 @@
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { rootReducer } from './reducers';
 
 export function configureStore(preloadedState = {}) {
-    debugger;
+
+    let storeComposer;
+    if (process.env.NODE_ENV === 'development') {
+        storeComposer = composeWithDevTools;
+    } else {
+        storeComposer = compose;
+    }
+
     const store = createStore(
         rootReducer,
         preloadedState,
-        composeWithDevTools()
+        storeComposer()
     )
 
     if (module.hot) {

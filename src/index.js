@@ -27,7 +27,7 @@ window.fbAsyncInit = () => {
    fjs.parentNode.insertBefore(js, fjs);
  }(document, 'script', 'facebook-jssdk'));
 
-const store = configureStore();
+const store = configureStore({ app: {}});
 
 ReactDOM.render(
   <Provider store={store}>
