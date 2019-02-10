@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import ViewStadiumsCard from './ViewStadiumsCard';
 import { NflCard } from './NflCard';
 import { HeadLineCard } from './HeadlineCard';
+import { RecentlyViewedHeadlineCard } from './RecentlyViewedHeadlineCard';
 
 export default class HomePageCardList extends Component {
   render() {
@@ -30,6 +31,9 @@ export default class HomePageCardList extends Component {
         </Grid>
         <Grid item md={2}>
           <HeadLineCard />
+        </Grid>
+        <Grid item md={2}>
+          <RecentlyViewedHeadlineCard />
         </Grid>
       </Grid>
     )

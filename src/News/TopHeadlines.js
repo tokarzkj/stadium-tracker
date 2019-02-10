@@ -42,7 +42,7 @@ export class TopHeadlines extends React.Component {
         if (this.state.articles) {
             const renderedArticles = this.state.articles.map(article => {
                 return (
-                    <Grid item xs={12} className="article-preview">
+                    <Grid key={article.url} item xs={12} className="article-preview">
                         <TopHeadlineDisplay articleUrl={article.url} imageUrl={article.urlToImage} title={article.title} author={article.author} description={article.description} onClick={this.props.recentlyViewedArticles.bind(this, article)} />
                     </Grid>
                 )

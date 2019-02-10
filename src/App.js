@@ -8,6 +8,7 @@ import CreateStadiumVisit from './CreateStadiumVisit';
 import Stadiums from './Stadiums';
 import { NflSearch } from './Leagues/NFL/NflSearch';
 import TopHeadlinesContainer from './News/TopHeadlinesContainer';
+import RecentlyViewedHeadlinesContainer from './News/RecentlyViewedHeadlinesContainer';
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
                 <Route path="/stadium/stadiums" component={Stadiums} />
                 <Route path="/leagues/nfl" component={NflSearch} />
                 <Route path="/news/headlines" component={TopHeadlinesContainer} />
+                <Route path="/news/viewed/recently" component={RecentlyViewedHeadlinesContainer} />
               </Switch>
             </div>
           </Router>
